@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/scrumpoker/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/scrumpoker/static/js/main.60f028c3.chunk.js",
+    "main.js.map": "/scrumpoker/static/js/main.60f028c3.chunk.js.map",
+    "runtime-main.js": "/scrumpoker/static/js/runtime-main.003012cc.js",
+    "runtime-main.js.map": "/scrumpoker/static/js/runtime-main.003012cc.js.map",
+    "static/js/2.b8d1a470.chunk.js": "/scrumpoker/static/js/2.b8d1a470.chunk.js",
+    "static/js/2.b8d1a470.chunk.js.map": "/scrumpoker/static/js/2.b8d1a470.chunk.js.map",
+    "index.html": "/scrumpoker/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/scrumpoker/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.b8d1a470.chunk.js.LICENSE.txt": "/scrumpoker/static/js/2.b8d1a470.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.003012cc.js",
+    "static/js/2.b8d1a470.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.60f028c3.chunk.js"
+  ]
+}
