@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
+        serif: ['Noto Serif', 'serif'],
+      },
+      fontSize: {
+        '10xl': '10rem',
       },
     },
   },

@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
+import Card from '../Card';
 
 function Participant({ className, name, ...rest }) {
   const [id, setId] = useState(0);
@@ -27,18 +28,11 @@ function Participant({ className, name, ...rest }) {
   }
 
   return (
-    <div className={classNames(className)} {...rest}>
-      {JSON.stringify(value)}
+    <div className={classNames(className, 'h-full flex items-center justify-center')} {...rest}>
       {[0, 1, 2, 3, 5, 8].map(option => (
-        <button
-          key={option}
-          type="button"
-          style={option === value ? { background: 'green' } : undefined}
-          onClick={() => send(option)}
-          disabled={value !== undefined}
-        >
+        <Card key={option} value={option} onClick={() => send(option)} filled={option === value}>
           {option}
-        </button>
+        </Card>
       ))}
     </div>
   );
