@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/scrumpoker/static/css/main.4fef93e7.chunk.css",
-    "main.js": "/scrumpoker/static/js/main.6ccc63e5.chunk.js",
-    "main.js.map": "/scrumpoker/static/js/main.6ccc63e5.chunk.js.map",
+    "main.css": "/scrumpoker/static/css/main.57b0f88d.chunk.css",
+    "main.js": "/scrumpoker/static/js/main.9b79a3ce.chunk.js",
+    "main.js.map": "/scrumpoker/static/js/main.9b79a3ce.chunk.js.map",
     "runtime-main.js": "/scrumpoker/static/js/runtime-main.003012cc.js",
     "runtime-main.js.map": "/scrumpoker/static/js/runtime-main.003012cc.js.map",
-    "static/js/2.f41371bc.chunk.js": "/scrumpoker/static/js/2.f41371bc.chunk.js",
-    "static/js/2.f41371bc.chunk.js.map": "/scrumpoker/static/js/2.f41371bc.chunk.js.map",
+    "static/js/2.cd9fa60e.chunk.js": "/scrumpoker/static/js/2.cd9fa60e.chunk.js",
+    "static/js/2.cd9fa60e.chunk.js.map": "/scrumpoker/static/js/2.cd9fa60e.chunk.js.map",
     "index.html": "/scrumpoker/index.html",
-    "static/css/main.4fef93e7.chunk.css.map": "/scrumpoker/static/css/main.4fef93e7.chunk.css.map",
-    "static/js/2.f41371bc.chunk.js.LICENSE.txt": "/scrumpoker/static/js/2.f41371bc.chunk.js.LICENSE.txt",
+    "static/css/main.57b0f88d.chunk.css.map": "/scrumpoker/static/css/main.57b0f88d.chunk.css.map",
+    "static/js/2.cd9fa60e.chunk.js.LICENSE.txt": "/scrumpoker/static/js/2.cd9fa60e.chunk.js.LICENSE.txt",
     "static/media/reset.1b0da0de.svg": "/scrumpoker/static/media/reset.1b0da0de.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.003012cc.js",
-    "static/js/2.f41371bc.chunk.js",
-    "static/css/main.4fef93e7.chunk.css",
-    "static/js/main.6ccc63e5.chunk.js"
+    "static/js/2.cd9fa60e.chunk.js",
+    "static/css/main.57b0f88d.chunk.css",
+    "static/js/main.9b79a3ce.chunk.js"
   ]
 }
