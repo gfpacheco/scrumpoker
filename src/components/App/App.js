@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Participant from '../Participant';
-import Spectator from '../Spectator';
+import Room from '../Room';
+import Rooms from '../Rooms';
 
 function App() {
-  const [name, setName] = useState('');
+  const [roomId, setRoomId] = useState();
 
-  return name ? <Participant name={name} /> : <Spectator onSubmitName={setName} />;
+  return roomId ? <Room roomId={roomId} /> : <Rooms onSubmitRoomId={setRoomId} />;
 }
 
 export default App;

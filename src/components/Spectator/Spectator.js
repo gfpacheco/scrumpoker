@@ -3,18 +3,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import Card from '../Card';
 import { ReactComponent as ResetIcon } from './reset.svg';
 
-function Spectator({ className, onSubmitName, ...rest }) {
-  const [estimations, setEstimations] = useState([]);
+function Spectator({ className, roomId, onSubmitName, ...rest }) {
+  const [participants, setParticipants] = useState([]);
   const inputRef = useRef();
 
   useEffect(() => {
-    const eventSource = new EventSource(`${process.env.REACT_APP_API_URL}/spectator`);
+    const eventSource = new EventSource(`${process.env.REACT_APP_API_URL}/${roomId}/spectator`);
     eventSource.onmessage = event => {
-      setEstimations(JSON.parse(event.data));
+      setParticipants(JSON.parse(event.data));
     };
 
     return () => eventSource.close();
-  }, []);
+  }, [roomId]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,10 +22,10 @@ function Spectator({ className, onSubmitName, ...rest }) {
   }
 
   function reset() {
-    fetch(`${process.env.REACT_APP_API_URL}/reset`, { method: 'POST' });
+    fetch(`${process.env.REACT_APP_API_URL}/${roomId}/reset`, { method: 'POST' });
   }
 
-  const gotAllEstimations = estimations.every(({ value }) => typeof value === 'number');
+  const gotAllParticipants = participants.every(({ estimate }) => typeof estimate === 'number');
 
   return (
     <div
@@ -48,14 +48,13 @@ function Spectator({ className, onSubmitName, ...rest }) {
         </button>
       </form>
       <div className="flex">
-        {estimations.length === 0 && <p>No one has joined yet.</p>}
-        {estimations.map(estimation => (
-          <div key={estimation.participant.id}>
-            <Card
-              value={gotAllEstimations && estimation.value}
-              filled={typeof estimation.value === 'number'}
-            />
-            <p className="mt-4 text-xl text-center">{estimation.participant.name}</p>
+        {participants.length === 0 && <p>No one has joined yet.</p>}
+        {participants.map(participant => (
+          <div key={participant.id}>
+            <Card filled={typeof participant.estimate === 'number'}>
+              {gotAllParticipants && participant.estimate}
+            </Card>
+            <p className="mt-4 text-xl text-center">{participant.name}</p>
           </div>
         ))}
       </div>
