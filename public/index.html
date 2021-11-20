@@ -22,6 +22,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Scrum Poker</title>
+    <script>
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
     <noscript>You need to enable JavaScript to run this app.</noscript>
