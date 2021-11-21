@@ -1,10 +1,6 @@
-import classNames from 'classnames';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../Card';
-
-export interface RoomsProps extends React.ComponentPropsWithoutRef<'div'> {
-  onSubmitRoomId(roomId: number): void;
-}
 
 interface Room {
   id: number;
@@ -12,7 +8,8 @@ interface Room {
   participants: Array<{ id: number; name: string }>;
 }
 
-function Rooms({ className, onSubmitRoomId, ...rest }: RoomsProps) {
+function Rooms() {
+  const navigate = useNavigate();
   const [rooms, setRooms] = useState<Room[]>([]);
 
   useEffect(() => {
@@ -25,10 +22,7 @@ function Rooms({ className, onSubmitRoomId, ...rest }: RoomsProps) {
   }, []);
 
   return (
-    <div
-      className={classNames(className, 'h-full flex flex-col items-center justify-center')}
-      {...rest}
-    >
+    <div className="h-full flex flex-col items-center justify-center">
       <p className="text-4xl">
         {Boolean(rooms?.length)
           ? 'Choose a room or create a new one'
@@ -36,7 +30,7 @@ function Rooms({ className, onSubmitRoomId, ...rest }: RoomsProps) {
       </p>
       <div className="mt-24 flex">
         {rooms.map(room => (
-          <Card key={room.id} onClick={() => onSubmitRoomId(room.id)}>
+          <Card key={room.id} onClick={() => navigate(`/scrumpoker/${room.id}`)}>
             {room.spectators.length > 0 && (
               <p className="text-sm mb-4">
                 {room.spectators.length} {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
@@ -49,7 +43,7 @@ function Rooms({ className, onSubmitRoomId, ...rest }: RoomsProps) {
             ))}
           </Card>
         ))}
-        <Card onClick={() => onSubmitRoomId(Date.now())}>+</Card>
+        <Card onClick={() => navigate(`/scrumpoker/${Date.now()}`)}>+</Card>
       </div>
     </div>
   );

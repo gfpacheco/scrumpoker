@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import DarkModeToggle from '../DarkModeToggle';
-import Room from '../Room';
+import Participant from '../Participant';
 import Rooms from '../Rooms';
+import Spectator from '../Spectator';
 
 function App() {
-  const [roomId, setRoomId] = useState<number | undefined>();
-
   return (
     <>
-      {roomId ? <Room roomId={roomId} /> : <Rooms onSubmitRoomId={setRoomId} />}
+      <Routes>
+        <Route path="scrumpoker/:roomId" element={<Spectator />} />
+        <Route path="scrumpoker/:roomId/:name" element={<Participant />} />
+        <Route path="*" element={<Rooms />} />
+      </Routes>
       <DarkModeToggle />
     </>
   );

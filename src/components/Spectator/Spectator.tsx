@@ -1,12 +1,7 @@
-import classNames from 'classnames';
 import { FormEvent, useEffect, useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Card from '../Card';
 import { ReactComponent as ResetIcon } from './reset.svg';
-
-export interface SpectatorProps extends React.ComponentPropsWithoutRef<'div'> {
-  roomId: number;
-  onSubmitName(name: string): void;
-}
 
 interface Participant {
   id: number;
@@ -14,7 +9,9 @@ interface Participant {
   estimate?: number;
 }
 
-function Spectator({ className, roomId, onSubmitName, ...rest }: SpectatorProps) {
+function Spectator() {
+  const navigate = useNavigate();
+  const { roomId } = useParams();
   const [participants, setParticipants] = useState<Participant[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -29,7 +26,7 @@ function Spectator({ className, roomId, onSubmitName, ...rest }: SpectatorProps)
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    onSubmitName(inputRef.current?.value ?? '');
+    navigate(`/scrumpoker/${roomId}/${inputRef.current?.value ?? ''}`);
   }
 
   function reset() {
@@ -39,10 +36,7 @@ function Spectator({ className, roomId, onSubmitName, ...rest }: SpectatorProps)
   const gotAllParticipants = participants.every(({ estimate }) => typeof estimate === 'number');
 
   return (
-    <div
-      className={classNames(className, 'h-full flex flex-col items-center justify-evenly')}
-      {...rest}
-    >
+    <div className="h-full flex flex-col items-center justify-evenly">
       <form className="flex" onSubmit={handleSubmit}>
         <input
           className="rounded-l-lg border-green-500 border-2 focus:outline-none"

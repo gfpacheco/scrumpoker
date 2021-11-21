@@ -1,19 +1,15 @@
-import classNames from 'classnames';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Card from '../Card';
 
-export interface ParticipantProps extends React.ComponentPropsWithoutRef<'div'> {
-  roomId: number;
-  name: string;
-}
-
-function Participant({ className, roomId, name, ...rest }: ParticipantProps) {
+function Participant() {
+  const { roomId, name } = useParams();
   const [id, setId] = useState(0);
   const [estimate, setEstimate] = useState<number | undefined>();
 
   useEffect(() => {
     const eventSource = new EventSource(
-      `${process.env.REACT_APP_API_URL}/${roomId}/participant?name=${encodeURIComponent(name)}`,
+      `${process.env.REACT_APP_API_URL}/${roomId}/participant?name=${name}`,
     );
     eventSource.onmessage = event => {
       setId(JSON.parse(event.data));
@@ -33,7 +29,7 @@ function Participant({ className, roomId, name, ...rest }: ParticipantProps) {
   }
 
   return (
-    <div className={classNames(className, 'h-full flex items-center justify-center')} {...rest}>
+    <div className="h-full flex items-center justify-center">
       {[0, 1, 2, 3, 5, 8].map(option => (
         <Card key={option} onClick={() => send(option)} filled={option === estimate}>
           {option}
