@@ -1,10 +1,15 @@
 import classNames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Card';
 
-function Participant({ className, roomId, name, ...rest }) {
+export interface ParticipantProps extends React.ComponentPropsWithoutRef<'div'> {
+  roomId: number;
+  name: string;
+}
+
+function Participant({ className, roomId, name, ...rest }: ParticipantProps) {
   const [id, setId] = useState(0);
-  const [value, setValue] = useState();
+  const [estimate, setEstimate] = useState<number | undefined>();
 
   useEffect(() => {
     const eventSource = new EventSource(
@@ -12,25 +17,25 @@ function Participant({ className, roomId, name, ...rest }) {
     );
     eventSource.onmessage = event => {
       setId(JSON.parse(event.data));
-      setValue();
+      setEstimate(undefined);
     };
 
     return () => eventSource.close();
   }, [roomId, name]);
 
-  async function send(estimate) {
+  async function send(estimate: number) {
     await fetch(`${process.env.REACT_APP_API_URL}/${roomId}/estimation`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id, estimate }),
     });
-    setValue(estimate);
+    setEstimate(estimate);
   }
 
   return (
     <div className={classNames(className, 'h-full flex items-center justify-center')} {...rest}>
       {[0, 1, 2, 3, 5, 8].map(option => (
-        <Card key={option} onClick={() => send(option)} filled={option === value}>
+        <Card key={option} onClick={() => send(option)} filled={option === estimate}>
           {option}
         </Card>
       ))}

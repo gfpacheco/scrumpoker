@@ -1,7 +1,10 @@
 import classNames from 'classnames';
-import React from 'react';
 
-function Card({ className, filled, ...rest }) {
+export interface CardProps extends React.ComponentPropsWithoutRef<'button'> {
+  filled?: boolean;
+}
+
+function Card({ className, filled, ...rest }: CardProps) {
   return (
     <button
       type="button"

@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Participant from '../Participant';
 import Spectator from '../Spectator';
 
-function Room({ roomId }) {
+export interface RoomProps {
+  roomId: number;
+}
+
+function Room({ roomId }: RoomProps) {
   const [name, setName] = useState('');
 
   return name ? (

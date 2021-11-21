@@ -1,11 +1,22 @@
 import classNames from 'classnames';
-import React, { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import Card from '../Card';
 import { ReactComponent as ResetIcon } from './reset.svg';
 
-function Spectator({ className, roomId, onSubmitName, ...rest }) {
-  const [participants, setParticipants] = useState([]);
-  const inputRef = useRef();
+export interface SpectatorProps extends React.ComponentPropsWithoutRef<'div'> {
+  roomId: number;
+  onSubmitName(name: string): void;
+}
+
+interface Participant {
+  id: number;
+  name: string;
+  estimate?: number;
+}
+
+function Spectator({ className, roomId, onSubmitName, ...rest }: SpectatorProps) {
+  const [participants, setParticipants] = useState<Participant[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const eventSource = new EventSource(`${process.env.REACT_APP_API_URL}/${roomId}/spectator`);
@@ -16,9 +27,9 @@ function Spectator({ className, roomId, onSubmitName, ...rest }) {
     return () => eventSource.close();
   }, [roomId]);
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    onSubmitName(inputRef.current.value);
+    onSubmitName(inputRef.current?.value ?? '');
   }
 
   function reset() {

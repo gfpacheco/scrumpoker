@@ -1,9 +1,19 @@
 import classNames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Card';
 
-function Rooms({ className, onSubmitRoomId, ...rest }) {
-  const [rooms, setRooms] = useState();
+export interface RoomsProps extends React.ComponentPropsWithoutRef<'div'> {
+  onSubmitRoomId(roomId: number): void;
+}
+
+interface Room {
+  id: number;
+  spectators: Array<{}>;
+  participants: Array<{ id: number; name: string }>;
+}
+
+function Rooms({ className, onSubmitRoomId, ...rest }: RoomsProps) {
+  const [rooms, setRooms] = useState<Room[]>([]);
 
   useEffect(() => {
     const eventSource = new EventSource(`${process.env.REACT_APP_API_URL}/guest`);
@@ -25,7 +35,7 @@ function Rooms({ className, onSubmitRoomId, ...rest }) {
           : 'Create a room to start estimating'}
       </p>
       <div className="mt-24 flex">
-        {rooms?.map(room => (
+        {rooms.map(room => (
           <Card key={room.id} onClick={() => onSubmitRoomId(room.id)}>
             {room.spectators.length > 0 && (
               <p className="text-sm mb-4">

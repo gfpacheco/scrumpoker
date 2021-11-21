@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-function DarkModeToggle({ className, ...rest }) {
+export interface DarkModeToggleProps extends React.ComponentPropsWithoutRef<'button'> {}
+
+function DarkModeToggle({ className, ...rest }: DarkModeToggleProps) {
   const [on, setOn] = useState(document.documentElement.classList.contains('dark'));
 
   function toggleDarkMode() {
