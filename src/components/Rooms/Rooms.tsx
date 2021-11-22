@@ -25,7 +25,7 @@ function Rooms() {
     <div className="h-full flex flex-col items-center justify-center">
       <p className="text-4xl">
         {Boolean(rooms?.length)
-          ? 'Choose a room or create a new one'
+          ? 'Join a room or create a new one'
           : 'Create a room to start estimating'}
       </p>
       <div className="mt-24 flex">
