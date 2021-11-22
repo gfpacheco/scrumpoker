@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="scrumpoker/:roomId" element={<Spectator />} />
-        <Route path="scrumpoker/:roomId/:name" element={<Participant />} />
+        <Route path=":roomId" element={<Spectator />} />
+        <Route path=":roomId/:name" element={<Participant />} />
         <Route path="*" element={<Rooms />} />
       </Routes>
       <DarkModeToggle />

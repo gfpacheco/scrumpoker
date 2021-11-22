@@ -26,7 +26,7 @@ function Spectator() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    navigate(`/scrumpoker/${roomId}/${inputRef.current?.value ?? ''}`);
+    navigate(`/${roomId}/${inputRef.current?.value ?? ''}`);
   }
 
   function reset() {

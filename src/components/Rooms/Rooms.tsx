@@ -30,7 +30,7 @@ function Rooms() {
       </p>
       <div className="mt-24 flex">
         {rooms.map(room => (
-          <Card key={room.id} onClick={() => navigate(`/scrumpoker/${room.id}`)}>
+          <Card key={room.id} onClick={() => navigate(`/${room.id}`)}>
             {room.spectators.length > 0 && (
               <p className="text-sm mb-4">
                 {room.spectators.length} {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
@@ -43,7 +43,7 @@ function Rooms() {
             ))}
           </Card>
         ))}
-        <Card onClick={() => navigate(`/scrumpoker/${Date.now()}`)}>+</Card>
+        <Card onClick={() => navigate(`/${Date.now()}`)}>+</Card>
       </div>
     </div>
   );
