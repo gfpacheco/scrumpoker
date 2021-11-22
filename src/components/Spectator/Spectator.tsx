@@ -39,7 +39,7 @@ function Spectator() {
     <div className="h-full flex flex-col items-center justify-evenly">
       <form className="flex" onSubmit={handleSubmit}>
         <input
-          className="rounded-l-lg border-green-500 border-2 focus:outline-none"
+          className="rounded-l-lg border-green-500 border-2 text-gray-900 focus:outline-none"
           ref={inputRef}
           name="name"
           type="text"
