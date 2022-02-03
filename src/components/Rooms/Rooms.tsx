@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import generateName from '../../utils/generateName';
 import Card from '../Card';
 
 interface Room {
@@ -43,7 +44,7 @@ function Rooms() {
             ))}
           </Card>
         ))}
-        <Card onClick={() => navigate(`/${Date.now()}`)}>+</Card>
+        <Card onClick={() => navigate(`/${generateName()}`)}>+</Card>
       </div>
     </div>
   );
