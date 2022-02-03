@@ -24,35 +24,42 @@ function Rooms() {
 
   return (
     <div className="h-full flex flex-col items-center justify-center">
-      <p className="text-4xl">
-        {Boolean(rooms?.length) ? 'Join a room' : 'Create a room to start estimating'}
-      </p>
-      <div className="my-16 flex items-end">
-        {rooms.map(room => (
-          <div key={room.id} className="mx-4 flex flex-col w-44">
-            <p className="mb-2 text-center">{room.id}</p>
-            <Card onClick={() => navigate(`/${room.id}`)}>
-              {room.spectators.length > 0 && (
-                <p className="text-sm mb-4">
-                  {room.spectators.length}{' '}
-                  {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
-                </p>
-              )}
-              {room.participants.map(participant => (
-                <p key={participant.id} className="text-sm">
-                  {participant.name}
-                </p>
-              ))}
-            </Card>
+      {Boolean(rooms?.length) ? (
+        <>
+          <p className="text-4xl">Join a room</p>
+          <div className="my-16 flex items-end">
+            {rooms.map(room => (
+              <div key={room.id} className="mx-4 flex flex-col w-44">
+                <p className="mb-2 text-center">{room.id}</p>
+                <Card onClick={() => navigate(`/${room.id}`)}>
+                  {room.spectators.length > 0 && (
+                    <p className="text-sm mb-4">
+                      {room.spectators.length}{' '}
+                      {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
+                    </p>
+                  )}
+                  {room.participants.map(participant => (
+                    <p key={participant.id} className="text-sm">
+                      {participant.name}
+                    </p>
+                  ))}
+                </Card>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {Boolean(rooms?.length) && (
+          <p className="text-4xl">
+            Or{' '}
+            <Link className="text-indigo-500" to={`/${generateName()}`}>
+              create a new one
+            </Link>
+          </p>
+        </>
+      ) : (
         <p className="text-4xl">
-          Or{' '}
           <Link className="text-indigo-500" to={`/${generateName()}`}>
-            create a new one
-          </Link>
+            Create a room
+          </Link>{' '}
+          to start estimating
         </p>
       )}
     </div>
