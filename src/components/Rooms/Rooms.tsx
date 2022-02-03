@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import generateName from '../../utils/generateName';
 import Card from '../Card';
 
@@ -25,27 +25,36 @@ function Rooms() {
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <p className="text-4xl">
-        {Boolean(rooms?.length)
-          ? 'Join a room or create a new one'
-          : 'Create a room to start estimating'}
+        {Boolean(rooms?.length) ? 'Join a room' : 'Create a room to start estimating'}
       </p>
-      <div className="mt-24 flex">
+      <div className="my-16 flex items-end">
         {rooms.map(room => (
-          <Card key={room.id} onClick={() => navigate(`/${room.id}`)}>
-            {room.spectators.length > 0 && (
-              <p className="text-sm mb-4">
-                {room.spectators.length} {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
-              </p>
-            )}
-            {room.participants.map(participant => (
-              <p key={participant.id} className="text-sm">
-                {participant.name}
-              </p>
-            ))}
-          </Card>
+          <div key={room.id} className="mx-4 flex flex-col w-44">
+            <p className="mb-2 text-center">{room.id}</p>
+            <Card onClick={() => navigate(`/${room.id}`)}>
+              {room.spectators.length > 0 && (
+                <p className="text-sm mb-4">
+                  {room.spectators.length}{' '}
+                  {room.spectators.length === 1 ? 'Spectator' : 'Spectators'}
+                </p>
+              )}
+              {room.participants.map(participant => (
+                <p key={participant.id} className="text-sm">
+                  {participant.name}
+                </p>
+              ))}
+            </Card>
+          </div>
         ))}
-        <Card onClick={() => navigate(`/${generateName()}`)}>+</Card>
       </div>
+      {Boolean(rooms?.length) && (
+        <p className="text-4xl">
+          Or{' '}
+          <Link className="text-indigo-500" to={`/${generateName()}`}>
+            create a new one
+          </Link>
+        </p>
+      )}
     </div>
   );
 }

@@ -56,7 +56,7 @@ function Spectator() {
         {participants.length === 0 && <p>No one has joined yet.</p>}
         {participants.map(participant => (
           <div key={participant.id}>
-            <Card filled={typeof participant.estimate === 'number'}>
+            <Card className="mx-4" filled={typeof participant.estimate === 'number'}>
               {gotAllParticipants && participant.estimate}
             </Card>
             <p className="mt-4 text-xl text-center">{participant.name}</p>

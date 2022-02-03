@@ -31,7 +31,12 @@ function Participant() {
   return (
     <div className="h-full flex items-center justify-center">
       {[0, 1, 2, 3, 5, 8].map(option => (
-        <Card key={option} onClick={() => send(option)} filled={option === estimate}>
+        <Card
+          key={option}
+          className="mx-4"
+          onClick={() => send(option)}
+          filled={option === estimate}
+        >
           {option}
         </Card>
       ))}
