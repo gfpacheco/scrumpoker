@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/scrumpoker/static/css/main.ecdca09c.chunk.css",
-    "main.js": "/scrumpoker/static/js/main.ae65f6c4.chunk.js",
-    "main.js.map": "/scrumpoker/static/js/main.ae65f6c4.chunk.js.map",
+    "main.js": "/scrumpoker/static/js/main.c9aa0773.chunk.js",
+    "main.js.map": "/scrumpoker/static/js/main.c9aa0773.chunk.js.map",
     "runtime-main.js": "/scrumpoker/static/js/runtime-main.003012cc.js",
     "runtime-main.js.map": "/scrumpoker/static/js/runtime-main.003012cc.js.map",
-    "static/js/2.a9037342.chunk.js": "/scrumpoker/static/js/2.a9037342.chunk.js",
-    "static/js/2.a9037342.chunk.js.map": "/scrumpoker/static/js/2.a9037342.chunk.js.map",
+    "static/js/2.9aa22d2d.chunk.js": "/scrumpoker/static/js/2.9aa22d2d.chunk.js",
+    "static/js/2.9aa22d2d.chunk.js.map": "/scrumpoker/static/js/2.9aa22d2d.chunk.js.map",
     "index.html": "/scrumpoker/index.html",
     "static/css/main.ecdca09c.chunk.css.map": "/scrumpoker/static/css/main.ecdca09c.chunk.css.map",
-    "static/js/2.a9037342.chunk.js.LICENSE.txt": "/scrumpoker/static/js/2.a9037342.chunk.js.LICENSE.txt",
+    "static/js/2.9aa22d2d.chunk.js.LICENSE.txt": "/scrumpoker/static/js/2.9aa22d2d.chunk.js.LICENSE.txt",
     "static/media/reset.1b0da0de.svg": "/scrumpoker/static/media/reset.1b0da0de.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.003012cc.js",
-    "static/js/2.a9037342.chunk.js",
+    "static/js/2.9aa22d2d.chunk.js",
     "static/css/main.ecdca09c.chunk.css",
-    "static/js/main.ae65f6c4.chunk.js"
+    "static/js/main.c9aa0773.chunk.js"
   ]
 }
