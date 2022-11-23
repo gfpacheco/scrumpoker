@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/scrumpoker/static/css/main.ecdca09c.chunk.css",
-    "main.js": "/scrumpoker/static/js/main.c9aa0773.chunk.js",
-    "main.js.map": "/scrumpoker/static/js/main.c9aa0773.chunk.js.map",
+    "main.js": "/scrumpoker/static/js/main.513ccbdd.chunk.js",
+    "main.js.map": "/scrumpoker/static/js/main.513ccbdd.chunk.js.map",
     "runtime-main.js": "/scrumpoker/static/js/runtime-main.003012cc.js",
     "runtime-main.js.map": "/scrumpoker/static/js/runtime-main.003012cc.js.map",
     "static/js/2.9aa22d2d.chunk.js": "/scrumpoker/static/js/2.9aa22d2d.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.003012cc.js",
     "static/js/2.9aa22d2d.chunk.js",
     "static/css/main.ecdca09c.chunk.css",
-    "static/js/main.c9aa0773.chunk.js"
+    "static/js/main.513ccbdd.chunk.js"
   ]
 }
